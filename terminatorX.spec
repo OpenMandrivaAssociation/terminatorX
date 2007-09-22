@@ -1,6 +1,6 @@
 %define name 	terminatorX
 %define version 3.82
-%define release %mkrel 2
+%define release %mkrel 3
 
 Summary: 	Realtime Audio Synthesizer
 Name: 		%{name}
@@ -20,7 +20,7 @@ BuildRequires:	pkgconfig ladspa-devel zlib-devel sox-devel mpg123 vorbis-tools
 BuildRequires:	gtk2-devel libmad-devel libvorbis-devel libaudiofile-devel
 BuildRequires:	libalsa-devel libxml2-devel liblrdf-devel XFree86-devel
 BuildRequires:	gtk+2-devel libgdk_pixbuf2.0-devel
-BuildRequires:	libscrollkeeper-devel jackit-devel
+BuildRequires:	librarian-devel jackit-devel
 Requires: liblrdf2-common
 
 %description
@@ -42,9 +42,17 @@ rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
 
 #menu
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat << EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}): command="%{name}" icon="%{name}.png" needs="x11" title="TerminatorX" longtitle="Sythesizer with scratching" section="Multimedia/Sound"
+install -d -m755 %{buildroot}%{_datadir}/applications
+cat > %{buildroot}%{_datadir}/applications/%{name}.desktop << EOF
+[Desktop Entry]
+Name=terminatorX
+GenericName=Realtime Audio Synthesizer
+Comment=Scratch on digitally sampled audio data 
+Exec=terminatorX
+Icon=terminatorX-app
+Terminal=false
+Type=Application
+Categories=X-MandrivaLinux-Multimedia-Sound;Player;X-MandrivaLinux-CrossDesktop
 EOF
 
 #icons
@@ -77,7 +85,7 @@ rm -r $RPM_BUILD_ROOT
 %{_datadir}/%name
 %{_datadir}/mime-info/terminatorX.keys
 %{_datadir}/mime-info/terminatorX.mime
-%{_menudir}/%{name}
 %{_liconsdir}/%name.png
 %{_iconsdir}/%name.png
 %{_miconsdir}/%name.png
+%{_datadir}/applications/%name.desktop
