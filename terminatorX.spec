@@ -20,7 +20,7 @@ BuildRequires:	pkgconfig ladspa-devel zlib-devel sox-devel mpg123 vorbis-tools
 BuildRequires:	gtk2-devel libmad-devel libvorbis-devel libaudiofile-devel
 BuildRequires:	libalsa-devel libxml2-devel liblrdf-devel XFree86-devel
 BuildRequires:	gtk+2-devel libgdk_pixbuf2.0-devel
-BuildRequires:	librarian-devel jackit-devel
+BuildRequires:	libscrollkeeper0-devel jackit-devel
 Requires: liblrdf2-common
 
 %description
