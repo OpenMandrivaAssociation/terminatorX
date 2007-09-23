@@ -80,7 +80,6 @@ rm -r $RPM_BUILD_ROOT
 %doc COPYING AUTHORS ChangeLog NEWS README README.PERFORMANCE THANKS TODO
 %{_mandir}/man1/*
 %{_datadir}/omf/%name/
-%{_datadir}/pixmaps/*.png
 %{_datadir}/%name
 %{_liconsdir}/%name.png
 %{_iconsdir}/%name.png
