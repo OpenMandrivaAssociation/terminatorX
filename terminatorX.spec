@@ -20,7 +20,7 @@ BuildRequires:	pkgconfig ladspa-devel zlib-devel sox-devel mpg123 vorbis-tools
 BuildRequires:	gtk2-devel libmad-devel libvorbis-devel libaudiofile-devel
 BuildRequires:	libalsa-devel libxml2-devel liblrdf-devel XFree86-devel
 BuildRequires:	gtk+2-devel libgdk_pixbuf2.0-devel
-BuildRequires:	libscrollkeeper0-devel jackit-devel
+BuildRequires:	rarian jackit-devel
 Requires: liblrdf2-common
 
 %description
@@ -78,10 +78,14 @@ rm -r $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %{_bindir}/*
 %doc COPYING AUTHORS ChangeLog NEWS README README.PERFORMANCE THANKS TODO
+%{_datadir}/gnome/apps/Multimedia/%name.desktop
 %{_mandir}/man1/*
 %{_datadir}/omf/%name/
+%{_datadir}/pixmaps/*.png
 %{_datadir}/%name
+%{_datadir}/mime-info/terminatorX.keys
+%{_datadir}/mime-info/terminatorX.mime
 %{_liconsdir}/%name.png
 %{_iconsdir}/%name.png
 %{_miconsdir}/%name.png
-%{_datadir}/applications/%name.desktop
+%{_datadir}/applications/%{name}.desktop
