@@ -22,6 +22,8 @@ BuildRequires:	libalsa-devel libxml2-devel liblrdf-devel XFree86-devel
 BuildRequires:	gtk+2-devel libgdk_pixbuf2.0-devel
 BuildRequires:	rarian jackit-devel
 Requires: liblrdf2-common
+Requires(post): desktop-file-utils
+Requires(postun): desktop-file-utils
 
 %description
 TerminatorX is a realtime audio synthesizer that allows you to "scratch" on
@@ -64,12 +66,14 @@ mkdir -p $RPM_BUILD_ROOT/%_miconsdir
 cat %SOURCE3 > $RPM_BUILD_ROOT/%_miconsdir/%name.png
  
 %post
-%{update_menus}
+%{update_menus} 
 scrollkeeper-update -p /var/lib/scrollkeeper -o /usr/share/omf/terminatorX
+%{update_desktop_database} 
 
 %postun
 %{clean_menus}  
 scrollkeeper-update
+%{update_menus} 
 
 %clean
 rm -r $RPM_BUILD_ROOT
@@ -81,10 +85,9 @@ rm -r $RPM_BUILD_ROOT
 %{_datadir}/gnome/apps/Multimedia/%name.desktop
 %{_mandir}/man1/*
 %{_datadir}/omf/%name/
-%{_datadir}/pixmaps/*.png
+%{_datadir}/pixmaps
 %{_datadir}/%name
-%{_datadir}/mime-info/terminatorX.keys
-%{_datadir}/mime-info/terminatorX.mime
+%{_datadir}/mime-info
 %{_liconsdir}/%name.png
 %{_iconsdir}/%name.png
 %{_miconsdir}/%name.png
