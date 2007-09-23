@@ -78,13 +78,10 @@ rm -r $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %{_bindir}/*
 %doc COPYING AUTHORS ChangeLog NEWS README README.PERFORMANCE THANKS TODO
-%{_datadir}/gnome/apps/Multimedia/%name.desktop
 %{_mandir}/man1/*
 %{_datadir}/omf/%name/
 %{_datadir}/pixmaps/*.png
 %{_datadir}/%name
-%{_datadir}/mime-info/terminatorX.keys
-%{_datadir}/mime-info/terminatorX.mime
 %{_liconsdir}/%name.png
 %{_iconsdir}/%name.png
 %{_miconsdir}/%name.png
