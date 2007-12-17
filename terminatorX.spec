@@ -14,7 +14,6 @@ Source: 	%{name}-%{version}.tar.bz2
 Source1: 	%{name}48.png
 Source2: 	%{name}32.png
 Source3: 	%{name}16.png
-Buildroot: 	%{_tmppath}/%{name}-buildroot
 
 BuildRequires:	pkgconfig ladspa-devel zlib-devel sox-devel mpg123 vorbis-tools
 BuildRequires:	gtk2-devel libmad-devel libvorbis-devel libaudiofile-devel
