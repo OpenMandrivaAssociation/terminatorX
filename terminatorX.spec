@@ -1,6 +1,6 @@
 %define name 	terminatorX
 %define version 3.82
-%define release %mkrel 3
+%define release %mkrel 4
 
 Summary: 	Realtime Audio Synthesizer
 Name: 		%{name}
@@ -21,7 +21,7 @@ BuildRequires:	gtk2-devel libmad-devel libvorbis-devel libaudiofile-devel
 BuildRequires:	libalsa-devel libxml2-devel liblrdf-devel X11-devel
 BuildRequires:	gtk+2-devel libgdk_pixbuf2.0-devel gnome-libs gnome-devel
 BuildRequires:	rarian jackit-devel
-Requires: liblrdf2-common
+Requires: %{mklibname lrdf2}-common
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
 
