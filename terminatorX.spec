@@ -54,7 +54,7 @@ Exec=terminatorX
 Icon=terminatorX-app
 Terminal=false
 Type=Application
-Categories=X-MandrivaLinux-Multimedia-Sound;Player;X-MandrivaLinux-CrossDesktop
+Categories=AudioVideo;Audio;Player;X-MandrivaLinux-CrossDesktop
 EOF
 
 #icons
@@ -67,12 +67,12 @@ cat %SOURCE3 > $RPM_BUILD_ROOT/%_miconsdir/%name.png
  
 %post
 %{update_menus} 
-scrollkeeper-update -p /var/lib/scrollkeeper -o /usr/share/omf/terminatorX
+%{update_scrollkeeper}
 %{update_desktop_database} 
 
 %postun
 %{clean_menus}  
-scrollkeeper-update
+%{clean_scrollkeeper}
 %{update_menus} 
 
 %clean
