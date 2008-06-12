@@ -65,15 +65,19 @@ cat %SOURCE2 > $RPM_BUILD_ROOT/%_iconsdir/%name.png
 mkdir -p $RPM_BUILD_ROOT/%_miconsdir
 cat %SOURCE3 > $RPM_BUILD_ROOT/%_miconsdir/%name.png
  
+%if %mdkversion < 200900
 %post
 %{update_menus} 
 %{update_scrollkeeper}
 %{update_desktop_database} 
+%endif
 
+%if %mdkversion < 200900
 %postun
 %{clean_menus}  
 %{clean_scrollkeeper}
 %{update_menus} 
+%endif
 
 %clean
 rm -r $RPM_BUILD_ROOT
