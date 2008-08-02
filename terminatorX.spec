@@ -1,6 +1,6 @@
 %define name 	terminatorX
 %define version 3.82
-%define release %mkrel 6
+%define release %mkrel 7
 
 Summary: 	Realtime Audio Synthesizer
 Name: 		%{name}
