@@ -1,19 +1,20 @@
 %define name 	terminatorX
 %define version 3.82
-%define release %mkrel 7
+%define release %mkrel 8
 
 Summary: 	Realtime Audio Synthesizer
 Name: 		%{name}
 Version: 	%{version}
 Release: 	%{release}
 Group: 		Sound
-License: 	GPL
+License: 	GPLv2+
 URL: 		http://www.terminatorx.cx/
 
 Source: 	%{name}-%{version}.tar.bz2
 Source1: 	%{name}48.png
 Source2: 	%{name}32.png
 Source3: 	%{name}16.png
+Patch0:		%{name}-3.82-fix-str-fmt.patch
 Buildroot: 	%{_tmppath}/%{name}-buildroot
 
 BuildRequires:	pkgconfig ladspa-devel zlib-devel sox-devel mpg123 vorbis-tools
@@ -21,7 +22,7 @@ BuildRequires:	gtk2-devel libmad-devel libvorbis-devel libaudiofile-devel
 BuildRequires:	libalsa-devel libxml2-devel liblrdf-devel X11-devel
 BuildRequires:	gtk+2-devel libgdk_pixbuf2.0-devel gnome-libs gnome-devel
 BuildRequires:	rarian jackit-devel
-Requires: %{mklibname lrdf2}-common
+#Requires: %{mklibname lrdf2}-common
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
 
@@ -34,6 +35,7 @@ GTK+ GUI.
 
 %prep
 %setup -q
+%patch0 -p1 -b .strfmt
 
 %build
 %configure2_5x --enable-alsa
@@ -49,12 +51,12 @@ cat > %{buildroot}%{_datadir}/applications/%{name}.desktop << EOF
 [Desktop Entry]
 Name=terminatorX
 GenericName=Realtime Audio Synthesizer
-Comment=Scratch on digitally sampled audio data 
+Comment=Scratch on digitally sampled audio data
 Exec=terminatorX
 Icon=terminatorX-app
 Terminal=false
 Type=Application
-Categories=AudioVideo;Audio;Player;X-MandrivaLinux-CrossDesktop
+Categories=AudioVideo;Audio;Player;X-MandrivaLinux-CrossDesktop;
 EOF
 
 #icons
