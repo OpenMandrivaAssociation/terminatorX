@@ -1,6 +1,6 @@
 %define name 	terminatorX
 %define version 3.82
-%define release %mkrel 8
+%define release %mkrel 9
 
 Summary: 	Realtime Audio Synthesizer
 Name: 		%{name}
@@ -16,15 +16,21 @@ Source2: 	%{name}32.png
 Source3: 	%{name}16.png
 Patch0:		%{name}-3.82-fix-str-fmt.patch
 Buildroot: 	%{_tmppath}/%{name}-buildroot
-
-BuildRequires:	pkgconfig ladspa-devel zlib-devel sox-devel mpg123 vorbis-tools
-BuildRequires:	gtk2-devel libmad-devel libvorbis-devel libaudiofile-devel
-BuildRequires:	libalsa-devel libxml2-devel liblrdf-devel X11-devel
-BuildRequires:	gtk+2-devel libgdk_pixbuf2.0-devel gnome-libs gnome-devel
-BuildRequires:	rarian jackit-devel
-#Requires: %{mklibname lrdf2}-common
-Requires(post): desktop-file-utils
-Requires(postun): desktop-file-utils
+BuildRequires:	libx11-devel
+BuildRequires:	libxi-devel
+BuildRequires:	libxxf86dga-devel
+BuildRequires:	libalsa-devel
+BuildRequires:	gtk+2-devel
+BuildRequires:	libcap-devel
+BuildRequires:	libaudiofile-devel
+BuildRequires:	jackit-devel
+BuildRequires:	liblrdf-devel
+BuildRequires:	libmad-devel
+BuildRequires:	libvorbis-devel
+BuildRequires:	libxml2-devel
+BuildRequires:	zlib-devel
+BuildRequires:	rarian
+BuildRequires:	ladspa-devel
 
 %description
 TerminatorX is a realtime audio synthesizer that allows you to "scratch" on
@@ -56,7 +62,7 @@ Exec=terminatorX
 Icon=terminatorX-app
 Terminal=false
 Type=Application
-Categories=AudioVideo;Audio;Player;X-MandrivaLinux-CrossDesktop;
+Categories=AudioVideo;Audio;Player;
 EOF
 
 #icons
@@ -88,12 +94,9 @@ rm -r $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %{_bindir}/*
 %doc COPYING AUTHORS ChangeLog NEWS README README.PERFORMANCE THANKS TODO
-%{_datadir}/gnome/apps/Multimedia/%name.desktop
 %{_mandir}/man1/*
 %{_datadir}/omf/%name/
-%{_datadir}/pixmaps
 %{_datadir}/%name
-%{_datadir}/mime-info
 %{_liconsdir}/%name.png
 %{_iconsdir}/%name.png
 %{_miconsdir}/%name.png
