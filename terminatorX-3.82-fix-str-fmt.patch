@@ -1,0 +1,12 @@
+diff -p -up terminatorX-3.82/src/tX_seqpar.cc.strfmt terminatorX-3.82/src/tX_seqpar.cc
+--- terminatorX-3.82/src/tX_seqpar.cc.strfmt	2009-06-02 01:39:43.000000000 +0200
++++ terminatorX-3.82/src/tX_seqpar.cc	2009-06-02 01:44:55.000000000 +0200
+@@ -330,7 +330,7 @@ void tX_seqpar :: store_meta(FILE *rc, g
+ 		strcat(buffer, buffer2);
+ 	}
+ 	
+-	tX_store(buffer);
++	tX_store("%s", buffer);
+ }
+ 
+ 
