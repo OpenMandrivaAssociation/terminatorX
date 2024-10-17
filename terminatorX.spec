@@ -8,7 +8,7 @@ Version: 	%{version}
 Release: 	%{release}
 Group: 		Sound
 License: 	GPLv2+
-URL: 		http://www.terminatorx.cx/
+URL: 		https://www.terminatorx.cx/
 
 Source: 	%{name}-%{version}.tar.bz2
 Source1: 	%{name}48.png
