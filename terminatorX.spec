@@ -16,6 +16,11 @@ Source2: 	%{name}32.png
 Source3: 	%{name}16.png
 Patch0:		%{name}-3.82-fix-str-fmt.patch
 Buildroot: 	%{_tmppath}/%{name}-buildroot
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libx11-devel
 BuildRequires:	libxi-devel
 BuildRequires:	libxxf86dga-devel
